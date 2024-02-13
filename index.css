@@ -49,19 +49,6 @@ header > div{
 
         The <h2> inside the section must (on screens with a minimum width of 800px) have a font size of 6em
 
-    <section id="grid">
-
-        NOTE: All of the styles noted below must *only* be applied on screens with a minimum width of 800px
-
-        The <section> element with id 'grid' must be a grid with 5 rows (the first having height 'auto', the remaining four having height 250px) and three columns of 1fr
-
-        All direct children of the section must have 1em of padding on all sides
-
-        The <h2> element inside the section must span three columns, have its text aligned right, and have font size 6em
-
-        The first <p> element inside the section must span two columns
-
-        The <div> inside the section must start at column two and span two columns, start at row three and span three columns
 */
 
 #flexbox{
@@ -83,6 +70,55 @@ header > div{
 }
 
 
+/*
+
+    <section id="grid">
+
+        NOTE: All of the styles noted below must *only* be applied on screens with a minimum width of 800px
+
+        The <section> element with id 'grid' must be a grid with 5 rows (the first having height 'auto', the remaining four having height 250px) and three columns of 1fr
+
+        All direct children of the section must have 1em of padding on all sides
+
+        The <h2> element inside the section must span three columns, have its text aligned right, and have font size 6em
+
+        The first <p> element inside the section must span two columns
+
+        The <div> inside the section must start at column two and span two columns, start at row three and span three columns
+*/
+
+@media only screen and (min-width: 800px){
+    #grid{
+        display: grid;
+        grid-template-rows: auto 250px 250px 250px 250px;
+        grid-template-columns: 1fr 1fr 1fr;
+       
+
+}
+
+    #grid > *{
+        padding: 1em;
+    }
+
+
+
+    #grid > h2{
+        display: grid;
+        grid-column: span 3;
+        text-align: right;
+        font-size: 6em;
+    }
+
+    #grid p:first-of-type{
+        grid-column: span 2;
+    }
+
+    #grid > div{
+        grid-column: 2 / span 2;
+        grid-row: 3 / span 3;
+    }
+
+}
 
 
 /*
@@ -95,3 +131,43 @@ header > div{
         On screens wider than 800px, the <p> element inside the div must additionally have no top margin
 
 */
+
+
+footer  div{
+    display:flex;
+}
+
+@media only screen and (min-width: 800px){
+    footer div{
+        flex-direction: row;
+        padding: 4em;
+    }
+
+    footer div p{
+        margin-top: 0;
+    }
+    
+    footer div img {
+        margin-left: auto;
+    }
+}
+
+@media only screen and (max-width: 800px){
+    footer div{
+        flex-direction: column;
+    }
+
+    footer div img{
+        order: -1;
+        margin-left: 40%;
+    }
+
+    footer div p{
+        text-align: center;
+    }
+
+
+}
+
+
+
